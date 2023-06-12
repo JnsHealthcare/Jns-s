@@ -4,16 +4,22 @@ import Snkrs from './Category/Snkrs';
 // import Sideoption from './Sideoption/Sideoption';
 import CATEGORY_DATA from './categoryData';
 import './Nav.scss';
-import { Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
+
+const interruptedRoute = ['signup', 'login'];
 
 const Nav = () => {
-  // TODO:  상수데이터 => 서버데이터로 변경 예정
+  const location = useLocation();
+  const pathname = location.pathname;
+  const isHideNav = interruptedRoute.some((path) => pathname.includes(path));
+
+  if (isHideNav) return;
 
   return (
     <div className="navBar">
       <Link to={'/'}>
         {/* <img src="/images/nike_logo.png" alt="logo" /> */}
-        <div>Lime</div>
+        <span>Lime</span>
       </Link>
       <section className="category">
         <ul className="navList">

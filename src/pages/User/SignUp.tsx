@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 import SignContainer from './SignContainer/SignConatainer';
 import { API } from '../../config/config';
 
-const LoginPage = () => {
+const SignUp = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState<any>({
+    name: '',
     email: '',
     password: '',
+    birthDate: '',
+    phoneNumber: '',
   });
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,36 +19,35 @@ const LoginPage = () => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const signInHandler = () => {
-    fetch(`${API.login}`, {
+  const signUpHandler = () => {
+    fetch(`${API.signup}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...inputValue }),
     })
       .then((response) => response.json())
-      .then((res) => {
-        if (res.message === 'Successfully signed in') {
-          localStorage.setItem('TOKEN', res.token);
-          localStorage.setItem('ISADMIN', res.isAdmin);
+      .then((data) => {
+        if (data.message === 'User has been created!') {
+          alert('가입을 축하합니다');
           navigate('/');
-        } else if (res.message === 'Given email is not found in DB') {
-          alert('아이디를 확인하세요');
-        } else if (res.message === 'Passed in wrong password') {
-          alert('비밀번호를 확인하세요');
-        } else if (res.message === 'The given email is blocked') {
-          alert('차단된 사용자 입니다');
+        } else if (data.message === 'The email is already in use') {
+          alert('이미 가입된 이메일입니다');
+        } else if (data.message === "It's an invalid email address") {
+          alert('이메일을 확인해주세요');
+        } else if (data.message === "It's an invalid password") {
+          alert('비밀번호를 확인해주세요');
         }
       });
   };
 
   return (
     <SignContainer
-      type="Sign In"
-      onClick={signInHandler}
+      type="Lime Login"
+      onClick={signUpHandler}
       inputValue={inputValue}
       onChangeInput={onChangeInput}
     />
   );
 };
 
-export default LoginPage;
+export default SignUp;
