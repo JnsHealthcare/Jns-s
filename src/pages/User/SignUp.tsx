@@ -27,7 +27,8 @@ const SignUp = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.message === 'User has been created!') {
+        console.log(data.message);
+        if (data.message === '정상 처리') {
           alert('가입을 축하합니다');
           navigate('/');
         } else if (data.message === 'The email is already in use') {
