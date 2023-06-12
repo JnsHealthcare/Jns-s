@@ -12,7 +12,8 @@ const Nav = () => {
   return (
     <div className="navBar">
       <Link to={'/'}>
-        <img src="/images/nike_logo.png" alt="logo" />
+        {/* <img src="/images/nike_logo.png" alt="logo" /> */}
+        <div>Lime</div>
       </Link>
       <section className="category">
         <ul className="navList">
