@@ -1,0 +1,39 @@
+.itemList {
+  width: 150px;
+  margin-left: 100px;
+
+  .eventSection {
+    position: relative;
+    width: 150px;
+    height: 125px;
+
+    img {
+      width: 100%;
+    }
+    .textSection {
+      width: 150px;
+      position: absolute;
+      top: 0;
+      background-color: rgba(black, 60%);
+      transition: all 0.2s;
+      visibility: collapse;
+      height: 0;
+
+      p {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #eee;
+      }
+
+      &.show {
+        visibility: visible;
+        height: 100%;
+      }
+    }
+  }
+
+  .bold {
+    font-weight: 900;
+  }
+}
