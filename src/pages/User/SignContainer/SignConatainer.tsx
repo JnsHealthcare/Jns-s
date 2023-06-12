@@ -24,7 +24,7 @@ const SignContainer = ({
     <Container>
       <SignSection>
         <Title>{type}</Title>
-        {pathname === '/signin' ? (
+        {pathname === '/login' ? (
           <SignInForm inputValue={inputValue} onChangeInput={onChangeInput} />
         ) : pathname === '/signup' ? (
           <SignUpForm inputValue={inputValue} onChangeInput={onChangeInput} />

@@ -1,7 +1,7 @@
 const CATEGORY_DATA = [
   {
     id: 1,
-    name: 'MEN',
+    name: 'about',
     url: '/products/category/1',
     carousel: [
       {
@@ -26,7 +26,7 @@ const CATEGORY_DATA = [
   },
   {
     id: 2,
-    name: 'WOMEN',
+    name: 'wishList',
     url: '/products/category/2',
     carousel: [
       {
@@ -51,7 +51,7 @@ const CATEGORY_DATA = [
   },
   {
     id: 3,
-    name: 'KIDS',
+    name: 'wishList2',
     url: '/products/category/3',
     carousel: [
       {

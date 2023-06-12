@@ -23,9 +23,10 @@ const LoginPage = () => {
     })
       .then((response) => response.json())
       .then((res) => {
-        if (res.message === 'Successfully signed in') {
-          localStorage.setItem('TOKEN', res.token);
-          localStorage.setItem('ISADMIN', res.isAdmin);
+        if (res.message === '정상 처리') {
+          localStorage.setItem('TOKEN', res?.data?.token);
+          console.log(res.data.token);
+          // localStorage.setItem('ISADMIN', res?.data?.isAdmin);
           navigate('/');
         } else if (res.message === 'Given email is not found in DB') {
           alert('아이디를 확인하세요');
