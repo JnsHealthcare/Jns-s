@@ -1,0 +1,11 @@
+@import '../../../styles/variables.scss';
+
+.sideIcon {
+  opacity: 1;
+  border: none;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $bgcLightGrey;
+  }
+}
