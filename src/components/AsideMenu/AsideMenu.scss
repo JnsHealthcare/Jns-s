@@ -1,0 +1,62 @@
+@import '../../styles/variables.scss';
+
+.sideMenu {
+  width: 250px;
+  overflow-y: auto;
+
+  .borderBottom {
+    border-bottom: 1px solid $fontGrey;
+    padding: 10px 5px;
+
+    h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: $btnColor;
+
+      &:hover {
+        color: $orangeColor;
+      }
+    }
+  }
+
+  .menuContainer {
+    height: 80vh;
+    overflow: scroll;
+    font-size: 30px;
+    font-weight: bold;
+    color: $btnColor;
+  }
+
+  .menu {
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 32px;
+    transition: all 1s;
+
+    p {
+      color: $fontGrey;
+      opacity: 1;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    &.openMenu {
+      max-height: 300px;
+      overflow: hidden;
+      transition: max-height ease-out 1.2s 0s;
+    }
+
+    &.closeMenu {
+      max-height: 0px;
+      overflow: hidden;
+      transition: max-height ease-out 1.2s 0s;
+    }
+
+    .asibeMenuCheckbox {
+      display: block;
+    }
+  }
+}

@@ -26,14 +26,20 @@ const Snkrs = () => {
   console.log(data);
   return (
     <div>
-      {localStorage.TOKEN ? <div></div> : <div></div>}
-      <li
-        onClick={() => {
-          navigate('/login');
-        }}
-      >
-        Login
-      </li>
+      {localStorage.TOKEN ? (
+        <li>{localStorage.name}</li>
+      ) : (
+        <div>
+          {' '}
+          <li
+            onClick={() => {
+              navigate('/login');
+            }}
+          >
+            Login
+          </li>
+        </div>
+      )}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import SignInForm from '../Form/SignInForm/SignInForm';
 import SignUpForm from '../Form/SignUpForm/SignUpForm';
+import KakaoAuth from './KakaoAuth';
 
 type SignContainerProps = {
   type: string;
@@ -30,6 +31,16 @@ const SignContainer = ({
           <SignUpForm inputValue={inputValue} onChangeInput={onChangeInput} />
         ) : null}
         <Button onClick={onClick}>{type}</Button>
+        {/* <img
+          src={`${process.env.PUBLIC_URL}/images/Kakao/kakao.png`}
+          alt="img"
+          style={{
+            width: '200px',
+            height: '30px',
+            cursor: 'pointer',
+          }}
+        /> */}
+        <KakaoAuth />
       </SignSection>
     </Container>
   );
