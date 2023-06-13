@@ -24,24 +24,7 @@ const Snkrs = () => {
   //     .then((data) => setData(data));
   // }, []);
   console.log(data);
-  return (
-    <div>
-      {localStorage.TOKEN ? (
-        <li>{localStorage.name}</li>
-      ) : (
-        <div>
-          {' '}
-          <li
-            onClick={() => {
-              navigate('/login');
-            }}
-          >
-            Login
-          </li>
-        </div>
-      )}
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Snkrs;

@@ -21,7 +21,7 @@ export const ASIDE_MENU_DATA = [
     id: 3,
     text: '용도',
     detail: [
-      { value: 'purpose', text: 'Sports' },
+      { value: 'purpose', text: 'Medi' },
       { value: 'purpose', text: 'Life Style' },
     ],
   },
@@ -41,10 +41,6 @@ export const ASIDE_MENU_DATA = [
   {
     id: 7,
     text: '가격대',
-    detail: [
-      { value: 'price', text: '0 ~ 100,000원' },
-      { value: 'price', text: '100,000 ~ 200,000원' },
-      { value: 'price', text: '200,000 ~ 300,000원' },
-    ],
+    detail: [{ value: 'price', text: '2,150,000' }],
   },
 ];

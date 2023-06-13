@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   id: number;
@@ -11,6 +12,7 @@ const Content = (props: Props) => {
   const { id, img, title, text } = props;
   const [position, setPosition] = useState(window.scrollY);
   const [opacity, setOpacity] = useState(0);
+  const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
 
   const onScroll = () => {
@@ -36,7 +38,13 @@ const Content = (props: Props) => {
       <section className="textBox">
         <p className="title">{title}</p>
         <p className="text">{text}</p>
-        <button>구매하기</button>
+        <button
+          onClick={() => {
+            navigate('/products');
+          }}
+        >
+          구매하기
+        </button>
       </section>
     </div>
   );

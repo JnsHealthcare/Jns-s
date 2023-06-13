@@ -1,0 +1,32 @@
+@import '../../styles/mixin.scss';
+@import '../../styles/variables.scss';
+
+.eactProduct {
+  @include productBoxSize;
+  padding: 0px 25px;
+
+  .imgBox {
+    @include productImgSize;
+    overflow: hidden;
+
+    .img {
+      height: 100%;
+      object-position: -50px;
+    }
+  }
+
+  .name {
+    margin-top: 15px;
+    font-size: 18px;
+  }
+
+  .option {
+    margin-top: 10px;
+    color: $fontGrey;
+  }
+
+  .price {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+}
