@@ -38,9 +38,4 @@ export const ASIDE_MENU_DATA = [
       { value: 'features', text: 'Water Resistant' },
     ],
   },
-  {
-    id: 7,
-    text: '가격대',
-    detail: [{ value: 'price', text: '2,150,000' }],
-  },
 ];
