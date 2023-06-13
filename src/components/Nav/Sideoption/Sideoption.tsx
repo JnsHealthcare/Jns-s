@@ -1,14 +1,17 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import Search from './Search/Search';
 import './Sideoption.scss';
 
-const sideOption = () => {
-  // const navigate = useNavigate();
+const UseSideOption = () => {
+  const navigate = useNavigate();
 
-  const toGoCart = () => {};
+  const isLoggedIn = !!localStorage.TOKEN;
+  const name = localStorage.name;
 
-  const toGoLike = () => {};
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
 
   return (
     <section className="sideOption">
@@ -30,16 +33,19 @@ const sideOption = () => {
           src="/images/Nav/shoppingIcon.png"
           alt="장바구니"
         />
-        <Link to="/auth/signup">
+        {isLoggedIn ? (
+          <li>{name}</li>
+        ) : (
           <img
             className="sideIcon"
             src="/images/Nav/userIcon.png"
             alt="내정보"
+            onClick={handleLoginClick}
           />
-        </Link>
+        )}
       </div>
     </section>
   );
 };
 
-export default sideOption;
+export default UseSideOption;
