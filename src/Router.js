@@ -7,6 +7,7 @@ import SignUp from './pages/User/SignUp';
 import UserPage from './pages/UserPage/UserPage';
 import ProductList from './pages/ProductList/ProductList';
 import Product from './components/Product/Product';
+import About from './pages/About/About.tsx';
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/userpage" element={<UserPage />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/about" element={<About />} />
         {/* <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/userpage" element={<UserPage />} />

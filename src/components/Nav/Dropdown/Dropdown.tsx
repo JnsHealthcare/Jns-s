@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Dropdown.scss';
 
 interface Props {
@@ -13,6 +13,7 @@ const Dropdown = (props: Props) => {
   const { className, carousel, url } = props;
   const slideSection = useRef(null);
   const [movecarousel, setMovecarousel] = useState(0);
+  const navigate = useNavigate();
 
   const moveLeft = () => {
     if (movecarousel === 0) {
@@ -54,9 +55,16 @@ const Dropdown = (props: Props) => {
                 <section className="carouselContent">
                   <p className="carouselText">{carousel.text}</p>
                   <p className="carouselTitle">{carousel.sub_name}</p>
-                  <Link to={url}>
-                    <button className="detailBtn">자세히보기</button>
-                  </Link>
+                  {/* <Link to={url}> */}
+                  <button
+                    className="detailBtn"
+                    onClick={() => {
+                      navigate('/products');
+                    }}
+                  >
+                    자세히보기
+                  </button>
+                  {/* </Link> */}
                 </section>
               </div>
             );

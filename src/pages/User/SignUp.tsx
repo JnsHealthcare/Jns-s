@@ -43,7 +43,7 @@ const SignUp = () => {
 
   return (
     <SignContainer
-      type="Lime Login"
+      type="Lime 회원가입"
       onClick={signUpHandler}
       inputValue={inputValue}
       onChangeInput={onChangeInput}
