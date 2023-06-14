@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 70px;
+  padding: 0px 28px;
   height: 60px;
   background-color: white;
 
@@ -35,7 +35,7 @@
       display: flex;
       align-items: center;
       height: 100%;
-      font-size: 16px;
+      font-size: 25px;
       border-bottom: 3px solid transparent;
 
       &:hover {
@@ -48,12 +48,12 @@
 
 .sideOption {
   display: flex;
-  align-content: space-between;
+  justify-content: space-around;
   background-color: white;
   margin-right: 30px;
 
   img {
-    width: 35px;
+    width: 50px;
     margin-left: 10px;
   }
 }
