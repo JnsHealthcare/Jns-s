@@ -4,7 +4,7 @@ import Snkrs from './Category/Snkrs';
 import Sideoption from './Sideoption/Sideoption';
 import CATEGORY_DATA from './categoryData';
 import './Nav.scss';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 
 const interruptedRoute = ['signup', 'login'];
 
@@ -12,6 +12,7 @@ const Nav = () => {
   const location = useLocation();
   const pathname = location.pathname;
   const isHideNav = interruptedRoute.some((path) => pathname.includes(path));
+  const navigate = useNavigate();
 
   if (isHideNav) return;
 
@@ -21,6 +22,14 @@ const Nav = () => {
         {/* <img src="/images/nike_logo.png" alt="logo" /> */}
         <span style={{ fontSize: '25px' }}>Lime</span>
       </Link>
+      <span
+        style={{ fontSize: '25px', cursor: 'pointer' }}
+        onClick={() => {
+          navigate('/about');
+        }}
+      >
+        about
+      </span>
       <section className="category">
         <ul className="navList">
           {CATEGORY_DATA.map((category: any) => {

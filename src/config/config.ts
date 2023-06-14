@@ -6,7 +6,7 @@ const API = {
   kakao: `${BASE_URL}/oauth2/authorization/kakao`,
   myPage: `${BASE_URL}/api/members/me`,
   detail: `${BASE_URL}/products/detail`,
-  products: `${BASE_URL}/products/category`,
+  products: `${BASE_URL}/api/products`,
   cart: `${BASE_URL}/cart/`,
 };
 
