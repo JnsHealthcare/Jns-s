@@ -19,7 +19,7 @@ const Nav = () => {
     <div className="navBar">
       <Link to={'/'}>
         {/* <img src="/images/nike_logo.png" alt="logo" /> */}
-        <span>Lime</span>
+        <span style={{ fontSize: '25px' }}>Lime</span>
       </Link>
       <section className="category">
         <ul className="navList">
