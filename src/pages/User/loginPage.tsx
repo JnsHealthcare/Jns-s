@@ -29,6 +29,8 @@ const LoginPage = () => {
           // localStorage.setItem('ISADMIN', res?.data?.isAdmin);
           console.log(res.data.token);
           console.log(res.data.name);
+          const name = res?.data?.name || '';
+          alert(`${name}님 환영합니다!`);
           navigate('/');
         } else if (res.message === 'Given email is not found in DB') {
           alert('아이디를 확인하세요');

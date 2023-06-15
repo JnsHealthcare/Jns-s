@@ -5,55 +5,61 @@ import AsideMenu from '../../components/AsideMenu/AsideMenu';
 import '../ProductList/ProductList.scss';
 import { API } from '../../config/config';
 
-const data = [
-  { id: 1, img: 'images/Nav/backBtn.png' },
-  { id: 2, img: 'images/Nav/delete.png' },
-  { id: 3, img: 'images/Nav/fowardBtn.png' },
-  { id: 4, img: 'images/Nav/Lime.png' },
-];
+interface Option {
+  id: number;
+  image: string;
+  active: boolean;
+}
+
+interface ProductType {
+  id: number;
+  name: string;
+  options: Option[];
+}
 
 const ProductList = () => {
-  const [productList, setProductList] = useState([]);
-  console.log(productList);
+  const [productList, setProductList] = useState<ProductType[]>([]);
   const { id } = useParams();
-
   const [index, setIndex] = useState(0);
 
-  console.log(data.length);
-
-  const clickHandler = () => {
-    if (index === data.length - 1) {
-      setIndex(1);
-    } else if (index < data.length) {
-      setIndex((prev) => prev + 1);
-    }
-  };
-  console.log(index);
-
-  console.log(data[index].img);
-
-  console.log(API.products);
-
-  // useEffect(() => {
-  //   fetch(`${API.products}`, {
-  //     method: 'GET',
-  //     headers: { 'Content-Type': 'application/json' },
-  //   }).then((res) => res.json());
-  // }, []);
-
   useEffect(() => {
-    fetch(`${API.products}`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setProductList(data);
-      })
-      .catch((error) => {
+    const fetchProductList = async () => {
+      try {
+        const response = await fetch(`${API.products}`, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setProductList(data?.data?.products || []);
+        } else {
+          console.error('Failed to fetch product list');
+        }
+      } catch (error) {
         console.error(error);
-      });
+      }
+    };
+
+    fetchProductList();
   }, []);
+
+  const handleThumbnailClick = (productId: number, image: string) => {
+    const updatedProductList = productList.map((product) => {
+      if (product.id === productId) {
+        return {
+          ...product,
+          options: product.options.map((option) => ({
+            ...option,
+            active: option.image === image,
+          })),
+        };
+      }
+      return product;
+    });
+
+    setProductList(updatedProductList);
+  };
 
   return (
     <div className="productList">
@@ -61,12 +67,45 @@ const ProductList = () => {
       <section className="listBox">
         <AsideMenu />
         <div className="listAlign">
-          {/* <span className=" font-bold">{data[index].img}</span> */}
-          {/* {productList.map((product) => {
-            return <Product key={product.id} {...product} />;
-          })} */}
-          {/* <img src={data[index].img} alt="123" width={200} /> */}
-          {/* <button onClick={clickHandler}>123</button> */}
+          {productList.map((product: ProductType) => (
+            <div className="productSlider" key={product.id}>
+              <div className="thumbnailImages">
+                {product.options.map((option: Option) => (
+                  <img
+                    key={option.id}
+                    src={option.image}
+                    alt={product.name}
+                    onClick={() =>
+                      handleThumbnailClick(product.id, option.image)
+                    }
+                    className={option.active ? 'active' : ''}
+                  />
+                ))}
+              </div>
+              <div className="productDetails">
+                <div className="mainImage">
+                  <img
+                    src={
+                      product.options.find((option) => option.active)?.image ||
+                      ''
+                    }
+                    alt={product.name}
+                  />
+                </div>
+                <Product
+                  id={product.id}
+                  ProductsName={product.name}
+                  name={product.name}
+                  imageUrl={
+                    product.options.find((option) => option.active)?.image || ''
+                  }
+                  price={0}
+                  key={product.id}
+                  options={product.options}
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
