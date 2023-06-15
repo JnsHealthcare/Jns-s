@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { API } from '../../../config/config';
 
 const KakaoAuth = () => {
+  console.log(API.kakao);
   const kakaoLoginHandle = () => {
-    fetch(API.kakao)
+    fetch(API.kakao, { headers: { Origin: 'https://localhost:3000' } })
       .then((response) => {
         if (!response.ok) {
           throw new Error('카카오 로그인 요청이 실패했습니다.');

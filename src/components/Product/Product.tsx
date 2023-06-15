@@ -2,12 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Product/Product.scss';
 
+interface Option {
+  id: number;
+  image: string;
+}
+
 interface Props {
-  id: string;
+  id: number;
   ProductsName: string;
-  name: string;
   imageUrl: string;
   price: number;
+  options: Option[];
+  name: string;
 }
 
 const Product = (props: Props) => {
