@@ -68,8 +68,8 @@ const Form = styled.form`
 const Input = styled.input`
   margin-top: 3px;
   padding: 5px;
-  width: 200px;
-  height: 30px;
+  width: 400px;
+  height: 55px;
   border: 2px solid #c9d9f9;
   border-radius: 5px;
   &:focus {

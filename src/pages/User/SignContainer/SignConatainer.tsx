@@ -63,9 +63,9 @@ const SignSection = styled.div`
   align-items: center;
   padding: 10px 0;
   width: 400px;
-  border: 2px solid #6b986f;
+  /* border: 2px solid #6b986f; */
   border-radius: 8px;
-  box-shadow: 0 0 5px #6b986f;
+  /* box-shadow: 0 0 5px #6b986f; */
 `;
 
 const Title = styled.section`
@@ -74,8 +74,8 @@ const Title = styled.section`
 `;
 
 const Button = styled.button`
-  width: 200px;
-  height: 30px;
+  width: 450px;
+  height: 55px;
   margin: 10px 0;
   /* border: 2px solid #6b986f; */
   @include btnStyle;

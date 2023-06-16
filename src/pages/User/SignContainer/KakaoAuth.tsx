@@ -21,8 +21,8 @@ const KakaoAuth = () => {
         src={`${process.env.PUBLIC_URL}/images/Kakao/kakao.png`}
         alt="img"
         style={{
-          width: '200px',
-          height: '30px',
+          width: '450px',
+          height: '50px',
         }}
       />
     </div>
