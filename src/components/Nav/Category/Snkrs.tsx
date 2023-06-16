@@ -14,7 +14,6 @@ const Snkrs = () => {
   const onMouseExit = () => {
     setisVisible(false);
   };
-  console.log(localStorage.TOKEN);
 
   // useEffect(() => {
   //   fetch(`${API.myPage}?accountId=${''}`, {
@@ -23,7 +22,6 @@ const Snkrs = () => {
   //     .then((res) => res.json())
   //     .then((data) => setData(data));
   // }, []);
-  console.log(data);
   return <div></div>;
 };
 

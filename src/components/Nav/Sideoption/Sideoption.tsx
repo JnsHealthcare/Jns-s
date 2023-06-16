@@ -17,11 +17,11 @@ const UseSideOption = () => {
     <section className="sideOption">
       {/* <Search /> */}
       <div className="iconBox">
-        <img
+        {/* <img
           className="sideIcon"
           src="/images/Nav/cardinal-point.png"
           alt="매장찾기"
-        />
+        /> */}
         <img
           className="sideIcon"
           src="/images/Nav/setIcon.png"
@@ -34,7 +34,7 @@ const UseSideOption = () => {
           alt="장바구니"
         />
         {isLoggedIn ? (
-          <li>{name}</li>
+          <p>{name}</p>
         ) : (
           <img
             className="sideIcon"

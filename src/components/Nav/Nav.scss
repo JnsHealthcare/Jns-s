@@ -3,26 +3,25 @@
 
 .navBar {
   position: relative;
-  z-index: 999;
+  // z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 28px;
-  height: 60px;
-  background-color: white;
-
-  img {
-    width: 100px;
-  }
+  height: 50px;
+  // background-color: white;
+  padding: 0 28px;
 
   .logo {
     margin-left: 30px;
+    img {
+      width: 100px;
+    }
   }
 }
 
 .category {
-  width: 40%;
-  height: 60px;
+  // width: 40%;
+  // height: 60px;
   margin-left: 10%;
   background-color: white;
 
@@ -35,7 +34,7 @@
       display: flex;
       align-items: center;
       height: 100%;
-      font-size: 25px;
+      font-size: 18px;
       border-bottom: 3px solid transparent;
 
       &:hover {
@@ -47,13 +46,13 @@
 }
 
 .sideOption {
-  display: flex;
-  justify-content: space-around;
+  // display: flex;
+  // justify-content: space-around;
   background-color: white;
-  margin-right: 30px;
+  // margin-right: 30px;
 
   img {
-    width: 50px;
+    width: 20px;
     margin-left: 10px;
   }
 }
@@ -65,7 +64,7 @@
   background-color: $inputBg;
   border-radius: 17px;
 
-  .search:focus {
+  &:focus {
     outline: none;
   }
 
@@ -86,4 +85,47 @@
   .sideOption {
     display: none;
   }
+
+  .navBar {
+    padding: 0 15px;
+  }
+
+  .category {
+    width: 60%;
+    margin-left: 0;
+  }
+
+  .navList {
+    justify-content: space-between;
+  }
+
+  li {
+    font-size: 16px;
+  }
 }
+
+/* Additional styling improvements */
+.navBar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.category {
+  border-radius: 30px; /* Add rounded corners */
+  overflow: hidden; /* Hide any overflow */
+}
+
+.navList li {
+  padding: 10px 15px; /* Add some padding to the list items */
+}
+
+.search {
+  transition: background-color 0.3s, border 0.3s; /* Add a smooth transition effect */
+}
+
+// .navBar,
+// .category,
+// .sideOption {
+//   @include mobile {
+//     height: 40px; /* Adjust the height for mobile */
+//   }
+// }

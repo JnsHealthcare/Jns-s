@@ -1,4 +1,4 @@
-@import '../../styles//mixin.scss';
+@import '../../styles/mixin.scss';
 @import '../../styles/variables.scss';
 
 .firstPage {
@@ -7,7 +7,6 @@
   padding: 130px 70px;
   object-fit: cover;
   overflow: hidden;
-  //   background-image: url(../../assets/images/main_1_mono.png);
 
   p {
     font-size: 70px;
@@ -25,11 +24,7 @@
 }
 
 .content {
-  // height: 1100px;
-
   .imgBox {
-    // width: 1300px;
-    height: 600px;
     margin: 0 auto;
     overflow: hidden;
 
@@ -40,7 +35,6 @@
 
   .textBox {
     height: 350px;
-    // flex-direction: column;
     justify-content: space-around;
     align-items: center;
     line-height: 20px;
@@ -53,10 +47,8 @@
     }
 
     .text {
-      // width: 500px;
       font-size: 24px;
       line-height: 98px;
-      // margin-bottom: 10px;
     }
 
     button {
@@ -65,6 +57,35 @@
 
       &:hover {
         opacity: 1;
+      }
+    }
+  }
+
+  // Mobile Styles
+  @media (max-width: 768px) {
+    padding: 50px;
+
+    .imgBox {
+      margin: 0; // Remove auto margin for mobile
+    }
+
+    .textBox {
+      height: auto;
+      margin-top: 30px;
+
+      .title {
+        margin-top: 30px;
+        font-size: 40px;
+      }
+
+      .text {
+        font-size: 18px;
+        line-height: 32px;
+      }
+
+      button {
+        width: 150px;
+        margin-top: 20px;
       }
     }
   }

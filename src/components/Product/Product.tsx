@@ -1,41 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Product/Product.scss';
-
-interface Option {
-  id: number;
-  image: string;
-}
+import { styled } from 'styled-components';
 
 interface Props {
   id: number;
-  ProductsName: string;
   imageUrl: string;
-  price: number;
-  options: Option[];
-  name: string;
 }
 
-const Product = (props: Props) => {
-  const { id, ProductsName, name, imageUrl, price } = props;
+const Product = ({ id, imageUrl }: Props) => {
+  console.log(imageUrl);
+
   console.log(id);
   return (
-    <section className="eactProduct">
-      <Link to={`/products/detail/${id}`}>
-        <div className="imgBox">
-          <img className="img" src={imageUrl} alt="상품" />
-        </div>
-        <p className="name">{ProductsName}</p>
-        <p className="name">{name}</p>
-        <p className="price">
-          {Math.ceil(price)
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}{' '}
-          KRW
-        </p>
-      </Link>
-    </section>
+    // <section className="eactProduct">
+    <ImgCard>
+      <Img src={imageUrl} alt="상품" />
+    </ImgCard>
+    // </section>
   );
 };
 
+{
+  /* <Link to={`/products/detail/${id}`}>
+<div className="imgBox">
+  <img className="img" src={imageUrl} alt="상품" />
+</div>
+</Link> */
+}
+
 export default Product;
+
+const ImgCard = styled.div`
+  width: 200px;
+  height: 200px;
+  margin: auto;
+`;
+
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+`;
