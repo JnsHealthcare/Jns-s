@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Slider from 'react-slick';
 import Product from '../../components/Product/Product';
 import AsideMenu from '../../components/AsideMenu/AsideMenu';
 import '../ProductList/ProductList.scss';
 import { API } from '../../config/config';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import styled from 'styled-components';
 
 interface Option {
   id: number;
   image: string;
-  active: boolean;
 }
 
 interface ProductType {
@@ -44,72 +47,123 @@ const ProductList = () => {
     fetchProductList();
   }, []);
 
-  const handleThumbnailClick = (productId: number, image: string) => {
-    const updatedProductList = productList.map((product) => {
-      if (product.id === productId) {
-        return {
-          ...product,
-          options: product.options.map((option) => ({
-            ...option,
-            active: option.image === image,
-          })),
-        };
-      }
-      return product;
-    });
+  console.log(productList);
 
-    setProductList(updatedProductList);
+  const settings = {
+    dots: true,
+    fade: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
 
+  console.log(productList[0]);
+
   return (
-    <div className="productList">
-      <h1 className="subTitle"></h1>
-      <section className="listBox">
-        <AsideMenu />
-        <div className="listAlign">
-          {productList.map((product: ProductType) => (
-            <div className="productSlider" key={product.id}>
-              <div className="thumbnailImages">
-                {product.options.map((option: Option) => (
-                  <img
+    <Container>
+      {productList?.map((d: any) => {
+        return (
+          <Wrapper key={d.id}>
+            <TitleSection>
+              <Title>{d.name}</Title>
+            </TitleSection>
+            <Slider {...settings}>
+              {productList[0]?.options.map((option: Option) => {
+                return (
+                  <Product
+                    id={option.id}
+                    imageUrl={option.image}
                     key={option.id}
-                    src={option.image}
-                    alt={product.name}
-                    onClick={() =>
-                      handleThumbnailClick(product.id, option.image)
-                    }
-                    className={option.active ? 'active' : ''}
                   />
-                ))}
-              </div>
-              <div className="productDetails">
-                <div className="mainImage">
-                  <img
-                    src={
-                      product.options.find((option) => option.active)?.image ||
-                      ''
-                    }
-                    alt={product.name}
-                  />
-                </div>
-                <Product
-                  id={product.id}
-                  ProductsName={product.name}
-                  name={product.name}
-                  imageUrl={
-                    product.options.find((option) => option.active)?.image || ''
-                  }
-                  price={0}
-                  key={product.id}
-                  options={product.options}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
+                );
+              })}
+            </Slider>
+          </Wrapper>
+        );
+      })}
+      {/* <Wrapper>
+        <Slider {...settings}>
+          {productList[0]?.options.map((option: Option) => {
+            return (
+              <Product id={option.id} imageUrl={option.image} key={option.id} />
+            );
+          })}
+        </Slider>
+      </Wrapper> */}
+
+      {/* </SliderSection> */}
+    </Container>
   );
 };
 
 export default ProductList;
+
+const Container = styled.div`
+  /* width: 1024px; */
+  /* margin-bottom: 20px; */
+  /* background-color: #111; */
+  /* height: 300px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #111;
+  padding: 20px;
+  margin-top: 68px;
+`;
+
+const Wrapper = styled.div`
+  width: 300px;
+  margin: 20px;
+`;
+
+const TitleSection = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Title = styled.p`
+  font-size: 24px;
+`;
+
+const SliderSection = styled(Slider)`
+  .slick-slide {
+    pointer-events: none;
+  }
+  .slick-active {
+    pointer-events: auto;
+  }
+`;
+
+{
+  /* <Slider {...settings}>
+          {productList[0]?.options.map((option: Option) => {
+            return (
+              <Product id={option.id} imageUrl={option.image} key={option.id} />
+            );
+          })}
+        </Slider> */
+}
+
+{
+  /* {productList.map((product: ProductType) => ( */
+}
+
+{
+  /* {productList.map((product: ProductType) => (
+            <Slider {...settings} key={product.id}>
+              {product.options.map((option: Option) => (
+                <Product
+                  id={product.id}
+                  ProductsName={product.name}
+                  name={product.name}
+                  imageUrl={option.image}
+                  price={230}
+                  key={option.id}
+                  options={product.options}
+                />
+              ))}
+            </Slider>
+          ))} */
+}

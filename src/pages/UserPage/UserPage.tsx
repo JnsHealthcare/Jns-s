@@ -9,6 +9,7 @@ const UserPage = () => {
   const [data, setData] = useState<any>([]);
   console.log(data);
   const token = getToken('TOKEN') || '';
+  console.log(token);
 
   useEffect(() => {
     fetch(`${API.myPage}?accountId=${''}`, {
@@ -20,32 +21,30 @@ const UserPage = () => {
 
   return (
     <Container>
-      <Section width={240}>
+      <Section width={400}>
         <Profile userdata={data} />
       </Section>
       <Section width={520}>
-        {data &&
-          data.posts.map((data: any) => {
-            return (
-              <PostList
-                key={data._id}
-                // id={data.postId || ''}
-                createdAt={data.createdAt}
-                views={data.views}
-                postId={data.postId}
-                title={data.title}
-                name={data.name}
-                likes={data.likes}
-                // type="userpage"
-              />
-            );
-          })}
+        {data.posts && data.posts.length > 0 ? (
+          data.posts.map((data: any) => (
+            <PostList
+              key={data._id}
+              createdAt={data.createdAt}
+              views={data.views}
+              postId={data.postId}
+              title={data.title}
+              name={data.name}
+              likes={data.likes}
+              // type="userpage"
+            />
+          ))
+        ) : (
+          <p>No posts found</p>
+        )}
       </Section>
     </Container>
   );
 };
-
-//id, postId, title, name, views, likes, createdAt
 
 export default UserPage;
 
@@ -64,7 +63,7 @@ const Section = styled.section<{ width: number }>`
   width: ${(props) => props.width}px;
   height: max-content;
   background-color: #fff;
-  border: 2px solid #7594dd;
+  border: 2px solid #40bc91;
   border-radius: 6px;
-  box-shadow: 0 0 2px #7594dd;
+  box-shadow: 0 0 2px #40bc91;
 `;

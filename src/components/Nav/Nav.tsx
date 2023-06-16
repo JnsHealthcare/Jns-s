@@ -18,10 +18,8 @@ const Nav = () => {
 
   return (
     <div className="navBar">
-      <Link to={'/'}>
-        {/* <img src="/images/nike_logo.png" alt="logo" /> */}
-        <span style={{ fontSize: '25px' }}>Lime</span>
-      </Link>
+      {/* <img src="/images/nike_logo.png" alt="logo" /> */}
+      <span style={{ fontSize: '25px' }}>Lime</span>
       <span
         style={{ fontSize: '25px', cursor: 'pointer' }}
         onClick={() => {
@@ -31,7 +29,15 @@ const Nav = () => {
         about
       </span>
       <section className="category">
-        <ul className="navList">
+        <span
+          style={{ fontSize: '25px', cursor: 'pointer' }}
+          onClick={() => {
+            navigate('/products');
+          }}
+        >
+          prodict
+        </span>
+        {/* <ul className="navList">
           {CATEGORY_DATA.map((category: any) => {
             return (
               <Category
@@ -43,7 +49,7 @@ const Nav = () => {
             );
           })}
           <Snkrs />
-        </ul>
+        </ul> */}
       </section>
       <Sideoption />
     </div>
