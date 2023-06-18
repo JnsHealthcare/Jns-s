@@ -1,30 +1,30 @@
 import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
-type InputValue = {
+type FormValue = {
   email: string;
   password: string;
 };
 
 type Props = {
-  inputValue: InputValue;
+  formValue: FormValue;
   onChangeInput: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
-const SignInForm = ({ inputValue, onChangeInput }: Props) => {
+const SignInForm = ({ formValue, onChangeInput }: Props) => {
   return (
     <Form>
       <Input
         type="text"
         placeholder="ID"
-        value={inputValue.email}
+        value={formValue.email}
         name="email"
         onChange={onChangeInput}
       />
       <Input
         type="password"
         placeholder="PassWord"
-        value={inputValue.password}
+        value={formValue.password}
         name="password"
         onChange={onChangeInput}
       />
@@ -39,13 +39,15 @@ const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* line-height: 10px; */
 `;
 
 const Input = styled.input`
   margin-top: 3px;
   padding: 5px;
-  width: 200px;
-  height: 30px;
+  /* line-height: 20px; */
+  width: 450px;
+  height: 55px;
   border: 2px solid #c9f9dc;
   border-radius: 5px;
   &:focus {

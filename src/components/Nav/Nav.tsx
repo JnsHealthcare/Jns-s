@@ -28,16 +28,25 @@ const Nav = () => {
       >
         about
       </span>
-      <section className="category">
-        <span
-          style={{ fontSize: '25px', cursor: 'pointer' }}
-          onClick={() => {
-            navigate('/products');
-          }}
-        >
-          prodict
-        </span>
-        {/* <ul className="navList">
+      {/* <section className="category"> */}
+      <span
+        style={{ fontSize: '25px', cursor: 'pointer' }}
+        onClick={() => {
+          navigate('/products');
+        }}
+      >
+        shop
+      </span>
+
+      <span
+        style={{ fontSize: '25px', cursor: 'pointer' }}
+        onClick={() => {
+          navigate('/login');
+        }}
+      >
+        login
+      </span>
+      {/* <ul className="navList">
           {CATEGORY_DATA.map((category: any) => {
             return (
               <Category
@@ -50,8 +59,8 @@ const Nav = () => {
           })}
           <Snkrs />
         </ul> */}
-      </section>
-      <Sideoption />
+      {/* </section> */}
+      {/* <Sideoption /> */}
     </div>
   );
 };
