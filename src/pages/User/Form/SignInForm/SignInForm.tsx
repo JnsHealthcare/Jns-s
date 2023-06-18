@@ -1,30 +1,30 @@
 import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
-type InputValue = {
+type FormValue = {
   email: string;
   password: string;
 };
 
 type Props = {
-  inputValue: InputValue;
+  formValue: FormValue;
   onChangeInput: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
-const SignInForm = ({ inputValue, onChangeInput }: Props) => {
+const SignInForm = ({ formValue, onChangeInput }: Props) => {
   return (
     <Form>
       <Input
         type="text"
         placeholder="ID"
-        value={inputValue.email}
+        value={formValue.email}
         name="email"
         onChange={onChangeInput}
       />
       <Input
         type="password"
         placeholder="PassWord"
-        value={inputValue.password}
+        value={formValue.password}
         name="password"
         onChange={onChangeInput}
       />

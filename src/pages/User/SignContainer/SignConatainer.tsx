@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import SignInForm from '../Form/SignInForm/SignInForm';
 import SignUpForm from '../Form/SignUpForm/SignUpForm';
@@ -20,15 +20,26 @@ const SignContainer = ({
 }: SignContainerProps) => {
   const location = useLocation();
   const pathname = location.pathname;
+  const navigate = useNavigate();
 
   return (
     <Container>
       <SignSection>
         <Title>{type}</Title>
         {pathname === '/login' ? (
-          <SignInForm inputValue={inputValue} onChangeInput={onChangeInput} />
+          <>
+            <SignInForm formValue={inputValue} onChangeInput={onChangeInput} />
+            <p
+              onClick={() => {
+                navigate('/signup');
+              }}
+              style={{ cursor: 'pointer' }}
+            >
+              아직 회원이 아니신가요 ?
+            </p>
+          </>
         ) : pathname === '/signup' ? (
-          <SignUpForm inputValue={inputValue} onChangeInput={onChangeInput} />
+          <SignUpForm formValue={inputValue} onChangeInput={onChangeInput} />
         ) : null}
         <Button onClick={onClick}>{type}</Button>
         {/* <img
@@ -69,8 +80,9 @@ const SignSection = styled.div`
 `;
 
 const Title = styled.section`
-  font-size: 24px;
+  font-size: 50px;
   margin: 10px 0;
+  color: #6b986f;
 `;
 
 const Button = styled.button`
