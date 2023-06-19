@@ -46,7 +46,7 @@ const LoginPage = () => {
     <SignContainer
       type="Lime"
       onClick={signInHandler}
-      inputValue={inputValue}
+      formValue={inputValue}
       onChangeInput={onChangeInput}
     />
   );

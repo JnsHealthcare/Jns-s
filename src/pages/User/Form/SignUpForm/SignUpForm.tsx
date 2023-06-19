@@ -71,7 +71,7 @@ const SignUpForm = ({ formValue, onChangeInput }: Props) => {
         name="phoneNumber"
         onChange={onChangeInput}
       />
-      <Button type="submit">Submit</Button>
+      {/* <Button type="submit">Submit</Button> */}
     </Form>
   );
 };

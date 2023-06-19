@@ -8,14 +8,14 @@ import KakaoAuth from './KakaoAuth';
 type SignContainerProps = {
   type: string;
   onClick: () => void;
-  inputValue: any;
+  formValue: any;
   onChangeInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const SignContainer = ({
   type,
   onClick,
-  inputValue,
+  formValue,
   onChangeInput,
 }: SignContainerProps) => {
   const location = useLocation();
@@ -28,7 +28,7 @@ const SignContainer = ({
         <Title>{type}</Title>
         {pathname === '/login' ? (
           <>
-            <SignInForm formValue={inputValue} onChangeInput={onChangeInput} />
+            <SignInForm formValue={formValue} onChangeInput={onChangeInput} />
             <p
               onClick={() => {
                 navigate('/signup');
@@ -39,7 +39,7 @@ const SignContainer = ({
             </p>
           </>
         ) : pathname === '/signup' ? (
-          <SignUpForm formValue={inputValue} onChangeInput={onChangeInput} />
+          <SignUpForm formValue={formValue} onChangeInput={onChangeInput} />
         ) : null}
         <Button onClick={onClick}>{type}</Button>
         {/* <img
