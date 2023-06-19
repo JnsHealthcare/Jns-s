@@ -30,9 +30,15 @@ const SignUpForm = ({ formValue, onChangeInput }: Props) => {
         type="text"
         placeholder="Name"
         value={formValue.name}
-        name="name"
-        onChange={onChangeInput}
+        // name="name"
+        // onChange={onChangeInput}
+        {...register('name', {
+          required: '필수입력값입니다',
+          minLength: { value: 5, message: '5글자 이상 입력해주세요' },
+          maxLength: { value: 15, message: '15자 이하로 입력해주세요' },
+        })}
       />
+      {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
       <Input
         type="Email"
         placeholder="Email"
