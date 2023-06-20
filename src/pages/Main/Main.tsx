@@ -19,7 +19,7 @@ const Main = () => {
     <div>
       <section className="firstPage">
         <div className="alignSlogan">
-          <p>YOU ARE MORE THAN</p>
+          {/* <img src=`}` alt="" /> */}
           <p>YOU THINK YOU ARE</p>
         </div>
       </section>
