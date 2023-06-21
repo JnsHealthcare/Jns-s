@@ -20,7 +20,7 @@ const Main = () => {
       <section className="firstPage">
         <div className="alignSlogan">
           {/* <img src=`}` alt="" /> */}
-          <p>YOU THINK YOU ARE</p>
+          {/* <p>YOU THINK YOU ARE</p> */}
         </div>
       </section>
       {MAIN_DATA.map((data: any) => {
